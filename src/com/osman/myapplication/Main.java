@@ -12,26 +12,24 @@ public class Main {
     final static int Password = 9900;
     static ArrayList<Transaction> transactions;
     static Scanner Input = new Scanner(System.in);
-
     // Main method of the application
     public static void main(String[] args) {
-        welcome(0,"");
+        welcome();
         signIn();
     }
-    static void welcome(int ch,String username) {
-        if(ch == 1){
+    static void welcome() {
+            System.out.println("--------------");
+            System.out.println("-Welcome Sir/Madam-");
+            System.out.println("--------------");
+    }
+
+    static void welcome(String username) {
             System.out.println("--------------");
             System.out.println("-Welcome "+ username +"-");
             System.out.println("--------------");
             createTransactions();
             menu();
-        }else{
-            System.out.println("--------------");
-            System.out.println("-Welcome Sir/Madam-");
-            System.out.println("--------------");
-        }
     }
-
     private static void createTransactions() {
         transactions = new ArrayList<>();
         transactions.add(new Transaction(2,"Salax Ali",20.8,229333));
@@ -47,7 +45,7 @@ public class Main {
         int pass = Input.nextInt();
         // Check Password
         if(pass == Password){
-            welcome(1, Name);
+            welcome(Name);
         }else {
             System.out.println("Sorry, Wrong credentials");
         }
