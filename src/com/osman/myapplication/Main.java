@@ -14,28 +14,28 @@ public class Main {
     static Scanner Input = new Scanner(System.in);
     // Main method of the application
     public static void main(String[] args) {
+        // Welcome unknown user
         welcome();
+        // Ask to sign in
         signIn();
     }
+    // Great Unknown User
     static void welcome() {
-            System.out.println("--------------");
-            System.out.println("-Welcome Sir/Madam-");
-            System.out.println("--------------");
+        System.out.println("--------------");
+        System.out.println("-Welcome Sir/Madam-");
+        System.out.println("--------------");
     }
-
+    // Great User with user name
     static void welcome(String username) {
             System.out.println("--------------");
             System.out.println("-Welcome "+ username +"-");
             System.out.println("--------------");
-            createTransactions();
-            menu();
     }
     private static void createTransactions() {
         transactions = new ArrayList<>();
         transactions.add(new Transaction(2,"Salax Ali",20.8,229333));
         transactions.add(new Transaction(5,"Omar Abdi",90,228990));
         transactions.add(new Transaction(2,"Salax Ali",20.8,229338));
-
     }
 
     private static void signIn() {
@@ -46,13 +46,14 @@ public class Main {
         // Check Password
         if(pass == Password){
             welcome(Name);
+            createTransactions();
+            menu();
         }else {
             System.out.println("Sorry, Wrong credentials");
         }
     }
 
     private static void menu() {
-
         System.out.println("1. Balance");
         System.out.println("2. Transactions");
         System.out.println("3. Transfer Amount");
@@ -75,7 +76,6 @@ public class Main {
     }
 
     private static void transactions() {
-
         for (Transaction transaction: transactions){
             System.out.println("You've sent "
                                 + transaction.FullName
